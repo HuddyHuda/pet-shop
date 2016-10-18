@@ -6,6 +6,7 @@ var mongoose = require('mongoose')
 var bodyParser = require('body-parser')
 var expressLayouts = require('express-ejs-layouts')
 var app = express()
+var port = 4000
 var router = express.Router()
 
 var moongoose = require('mongoose')
@@ -30,11 +31,11 @@ if (app.get('env') === 'development') {
   })
 }
 
-app.listen(3000)
+app.listen(port)
 
-console.log('Server running at http://localhost:')
+console.log('Server running at http://localhost:' + port )
 
-var data_routes = require('./routes/data')
-app.use('/', data_routes)
+var animal_routes = require('./routes/animals')
+app.use('/animals', animal_routes)
 
 // ############ YOU CAN ADD YOUR CODE BELOW
